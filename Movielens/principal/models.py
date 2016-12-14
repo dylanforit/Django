@@ -10,7 +10,9 @@ class Ocupacion(models.Model):
         return self.nombre
 
 class Categoria(models.Model):
+    idCategoria = models.IntegerField()
     nombre =  models.CharField(max_length=50)
+
     def _unicode_(self):
         return self.nombre
       
@@ -28,7 +30,7 @@ class Pelicula(models.Model):
     titulo = models.TextField()
     fechaEstreno = models.CharField(max_length=50)
     IMDbURL= models.URLField()
-    categoria=models.ManyToManyField(Categoria, verbose_name=("nombre"))
+    categorias=models.ManyToManyField(Categoria)
     puntuacion=models.ManyToManyField(Usuario, through='Puntuacion')
     
     def _unicode_(self):
