@@ -20,11 +20,17 @@
 	<section>
 		<h1>Usuarios</h1>
 		<ul>
-			{% for p in usuarios %}
-
-			<li>{{p.id}} codigo postal: {{p.codigoPostal}}</li>
-			{% endfor %}
-		
+		   {% for c in cps %}
+            <ul><b>Código Postal: {{ c }}</b></ul>
+                {% for u in usuarios %}
+                    {% if u.codigoPostal == c %}
+                        <b><h5>Usuario: {{u.id}}</h5></b>
+                        <li>Edad: {{u.edad}}</li>
+                        <li>Sexo: {{u.sexo}}</li>
+                        <br/>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
 			</ul>
     </section>
 </body>

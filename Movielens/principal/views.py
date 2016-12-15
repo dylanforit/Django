@@ -17,13 +17,13 @@ def categorias(request):
     return render_to_response('categorias.html', {'categorias':categorias})
 
 def usuarios(request):
-    usuarios = []
-    conn = sqlite3.connect('movielens.db')
-    cursor = conn.execute("""SELECT * FROM principal_usuario group by codigoPostal""")
-    
-    for i in cursor:
-        usuario = Usuario.objects.get(pk=i[0])
-        usuarios.append(usuario)
+    cPs = []
+    usuarios = Usuario.objects.all()
+   
+    for u in usuarios.all():
+        if u.codigoPostal not in cPs:
+            cPs.append(u.codigoPostal)
 
    
-    return render_to_response('usuarios.html', {'usuarios':usuarios})
+    return render_to_response('usuarios.html', {'usuarios':usuarios,'cps':cPs})
+

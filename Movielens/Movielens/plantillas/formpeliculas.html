@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Peliculas</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/peliculas">Películas</a></li>
+				<li><a href="/usuarios">Usuarios por codigo postal</a></li>
+				<li><a href="/categorias">Categorias</a></li>
+				<!--   <li><a href="/buscarPelicula">Buscar película</a></li>-->
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Buscar películas por año</h1>
+        <h3><em>La fecha introducida debe ser menor a 1999 porque no hay películas posteriores</em></h3>
+        <form id='formulario' method='post' action=''>{% csrf_token %}
+        {{formulario.as_p}}
+        <p><input type='submit' value='Confirmar'/></p>
+        </form>
+    </section>
+</body>
+</html>
