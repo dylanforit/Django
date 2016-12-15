@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Peliculas</title>
+<title>Peliculas Por usuario</title>
 </head>
 <body>
 	<header>
@@ -18,8 +18,7 @@
         </nav>
     </header>
     <section>
-        <h1>Buscar películas por ano</h1>
-        <h3><em>La fecha introducida debe ser antes de 1999</em></h3>
+        <h1>Buscar películas puntuadas por usuario (id)</h1>
         <form id='formulario' method='post' action=''>{% csrf_token %}
         {{formulario.as_p}}
         <p><input type='submit' value='Buscar'/></p>

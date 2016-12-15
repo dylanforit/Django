@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Películas</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/peliculasPuntuadas">Peliculas mejor puntuadas</a></li>
+				<li><a href="/formpeliculas">Peliculas por ano</a></li>
+				<li><a href="/usuarios">Usuarios por ocupación</a></li>
+				<li><a href="/formPeliculasUsuario">Peliculas puntuadas por id</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Películas</h1>
+        <ul>
+            {% for p in peliculasPuntuadas %}
+                <li>{{p}}</li>
+                <br>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>

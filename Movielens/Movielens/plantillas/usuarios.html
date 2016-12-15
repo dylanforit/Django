@@ -9,10 +9,11 @@
 		<nav>
 			<ul>
 				<li><a href="/">Inicio</a></li>
-				<li><a href="/peliculas">Peliculas</a></li>
-				<li><a href="/usuarios">Usuarios agrupados por código
-						postal</a></li>
-				<li><a href="/Usuarios">Usuarios</a></li>
+				<li><a href="/peliculasPuntuadas">Peliculas mejor puntuadas</a></li>
+				<li><a href="/formpeliculas">Peliculas por ano</a></li>
+				<li><a href="/usuarios">Usuarios por ocupación</a></li>
+				<li><a href="/formPeliculasUsuario">Peliculas puntuadas por
+						id</a></li>
 
 			</ul>
 		</nav>
@@ -20,19 +21,17 @@
 	<section>
 		<h1>Usuarios</h1>
 		<ul>
-		   {% for c in cps %}
-            <ul><b>Código Postal: {{ c }}</b></ul>
-                {% for u in usuarios %}
-                    {% if u.codigoPostal == c %}
-                        <b><h5>Usuario: {{u.id}}</h5></b>
-                        <li>Edad: {{u.edad}}</li>
-                        <li>Sexo: {{u.sexo}}</li>
-                        <br/>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
+			{% for c in cps %}
+			<ul>
+				<b>Ocupación: {{ c.nombre }}</b>
 			</ul>
-    </section>
+			{% for u in usuarios %} {% if u.ocupacion == c %}
+			<b><h5>Usuario: {{u.id}}</h5></b>
+			<li>Edad: {{u.edad}}</li>
+			<li>Codigo postal: {{u.codigoPostal}}</li>
+			<br /> {% endif %} {% endfor %} {% endfor %}
+		</ul>
+	</section>
 </body>
 </html>
 

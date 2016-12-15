@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Peliculas</title>
+    <meta charset="UTF-8">
+    <title>Películas</title>
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
+    <header>
+        <nav>
+            <ul>
 			<li><a href="/">Inicio</a></li>
 			<li><a href="/peliculasPuntuadas">Peliculas mejor puntuadas</a></li>
 			<li><a href="/formpeliculas">Peliculas por ano</a></li>
 			<li><a href="/usuarios">Usuarios por ocupación</a></li>
 			<li><a href="/formPeliculasUsuario">Peliculas puntuadas por id</a></li>
-				<!--   <li><a href="/buscarPelicula">Buscar película</a></li>-->
             </ul>
         </nav>
     </header>
     <section>
-        <h1>Buscar películas por ano</h1>
-        <h3><em>La fecha introducida debe ser antes de 1999</em></h3>
-        <form id='formulario' method='post' action=''>{% csrf_token %}
-        {{formulario.as_p}}
-        <p><input type='submit' value='Buscar'/></p>
-        </form>
+        <h1>Películas puntuadas por: {{usuario}}</h1>
+        <ul>
+            {% for p in peliculas %}
+                <li>{{p}}</li>
+                <br>
+            {% endfor %}
+        </ul>
     </section>
 </body>
 </html>
