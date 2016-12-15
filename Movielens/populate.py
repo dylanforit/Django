@@ -48,6 +48,34 @@ def insertaPelicula():
     conn.commit()
     conn.close()
     
+def insertaUsuario():
+    conn = sqlite3.connect('movielens.db')
+    conn.execute("""DELETE FROM principal_usuario""")
+    conn.text_factory = str
+    usuarios = open('u.user', 'r')
+    for u in usuarios.readlines():
+        tmp = u.split('|')
+        cursor = conn.execute("""select * from principal_ocupacion where nombre like ?""",(tmp[3]+'\n',))
+        for i in cursor:
+            ocupacion_id =i[0]
+
+        conn.execute("""INSERT INTO principal_usuario (idUsuario, edad, sexo, ocupacion_id, codigoPostal) VALUES (?,?,?,?,?)""",
+                     (tmp[0],tmp[1],tmp[2],ocupacion_id,tmp[4]))
+    conn.commit()
+    conn.close()
+    
+def insertaPuntuacion():
+    conn = sqlite3.connect('movielens.db')
+    conn.execute("""DELETE FROM principal_puntuacion""")
+    conn.text_factory = str
+    puntuaciones = open('u.data', 'r')
+    for p in puntuaciones.readlines():
+        tmp = p.split(' ')[0].split('\t')
+        conn.execute("""INSERT INTO principal_puntuacion (usuario_id, pelicula_id, cantidad) VALUES (?,?,?)""",
+                     (tmp[0],tmp[1],tmp[2]))
+    conn.commit()
+    conn.close()
+        
 def convierteFecha(fecha):
     aux = fecha.split('-')
     date_object = ''
@@ -60,6 +88,7 @@ def main():
     insertaOcupacion()
     insertaCategoria()
     insertaPelicula()
-    
+    insertaUsuario()
+    insertaPuntuacion()
 if __name__ == "__main__":
     main()

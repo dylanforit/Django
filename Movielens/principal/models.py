@@ -19,7 +19,7 @@ class Categoria(models.Model):
 class Usuario(models.Model):
     idUsuario = models.CharField(max_length=50)
     edad = models.TextField()
-    sexo = models.CharField(max_length=1)
+    sexo = models.CharField(max_length=2)
     ocupacion= models.ForeignKey(Ocupacion)
     codigoPostal=models.TextField()
     def _unicode_(self):
@@ -39,5 +39,5 @@ class Pelicula(models.Model):
     
 class Puntuacion(models.Model):
     usuario = models.ForeignKey(Usuario)
-    pelicula = models.ForeignKey(Pelicula,related_name='pelicula_puntuacion')
-    cantidad = models.CharField(max_length=50)
+    pelicula = models.ForeignKey(Pelicula,related_name='pelicula')
+    cantidad = models.IntegerField()
