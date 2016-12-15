@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Usuarios</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/peliculas">Peliculas</a></li>
+				<li><a href="/usuarios">Usuarios agrupados por código
+						postal</a></li>
+				<li><a href="/Usuarios">Usuarios</a></li>
+
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<h1>Usuarios</h1>
+		<ul>
+			{% for p in usuarios %}
+
+			<li>{{p.id}} codigo postal: {{p.codigoPostal}}</li>
+			{% endfor %}
+		
+			</ul>
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorías</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/peliculas">Peliculas</a></li>
+                <li><a href="/usuarios">Usuarios agrupados por código postal</a></li>
+                <li><a href="/Categorias">Categorias</a></li>
+             
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Categorías</h1>
+        <ul>
+            {% for p in categorias %}
+                <li>{{p.nombre}}</li>
+                <br>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
