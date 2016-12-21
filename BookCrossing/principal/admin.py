@@ -1,7 +1,7 @@
-from principal.models import Pelicula, Ocupacion, Usuario ,Categoria
+#enconding:utf-8
+from principal.models import Libro,  Usuario, Puntuacion
 from django.contrib import admin
 
-admin.site.register(Pelicula)
-admin.site.register(Ocupacion)
+admin.site.register(Libro)
 admin.site.register(Usuario)
-admin.site.register(Categoria)
+admin.site.register(Puntuacion)

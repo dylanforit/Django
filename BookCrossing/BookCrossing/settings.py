@@ -1,5 +1,5 @@
 # Django settings for BookCrossing project.
-#encoding:utf-8
+#utf-enconding
 
 # Identificando la ruta del proyecto
 import os

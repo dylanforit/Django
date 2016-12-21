@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libros</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/peliculas">Buscar películas por puntuacion</a></li>
+                <li><a href="/usuarios">Usuarios agrupados por código postal</a></li>
+                <li><a href="/buscarPelicula">Buscar película</a></li>
+                <li><a href="/usuarioMasPeliculasHaPuntuado">Usuario que más películas ha puntuado</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Libros</h1>
+        <ul>
+            {% for p in resultado %}
+                <li>{{p}}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
