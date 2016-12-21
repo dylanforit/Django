@@ -1,2 +1,6 @@
-*.bd
+/__init__.pyc
+/settings.pyc
+/urls.pyc
+/wsgi.pyc
+*.db
 *.csv
