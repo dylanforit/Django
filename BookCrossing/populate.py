@@ -33,9 +33,11 @@ def insertaPuntuacion():
     conn.execute("""DELETE FROM principal_puntuacion""")
     conn.text_factory = str
     puntuaciones = open('BX-Book-Ratings.csv', 'r')
+    id=0
     for p in puntuaciones.readlines():
         tmp = p.split(';')
-        conn.execute("""INSERT INTO principal_puntuacion (usuario_id,libro_id,puntuacion) VALUES (?,?,?)""",(cleanString(tmp[0]),cleanString(tmp[1]),cleanString(tmp[2])))
+        conn.execute("""INSERT INTO principal_puntuacion (usuario_id,libro_id,puntuacion) VALUES (?,?,?,?)""",(id ,cleanString(tmp[0]),cleanString(tmp[1]),cleanString(tmp[2])))
+        id=id+1
     conn.commit()
     conn.close()
     print("Puntuaciones insertadas")
