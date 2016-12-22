@@ -21,7 +21,7 @@ def insertaEtiquetas():
     usuarios = open('tags.dat','r')
     for u in usuarios.readlines():
         tmp = u.split('\t')
-        conn.execute("""INSERT INTO principal_etiqueta(idTag, tagValue) VALUES (?,?)""", (tmp[0], tmp[1]))
+        conn.execute("""INSERT INTO principal_etiqueta(idTag, tagValue) VALUES (?,?)""", (tmp[0], tmp[1].decode('cp1252').encode('utf-8')))
     conn.commit()
     conn.close()
     print("Etiquetas insertadas correctamente")

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Artistas Por usuario</title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+			<li><a href="/">Inicio</a></li>
+			<li><a href="/artistasPorUsuario">Peliculas mejor puntuadas</a></li>
+			
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h1>Buscar artistas escuchados por usuario (id)</h1>
+        <form id='formulario' method='post' action=''>{% csrf_token %}
+        {{formulario.as_p}}
+        <p><input type='submit' value='Buscar'/></p>
+        </form>
+    </section>
+</body>
+</html>
